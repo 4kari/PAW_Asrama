@@ -29,15 +29,10 @@
 		                    </div>
                         </div>
                         <h4 class="title-1 m-b-25 text-center">Berkas</h4>
-                        <?php if ($daftar->foto!="") { ?>
                         <div class="row"><div class="col-4"><img src="<?php echo base_url();?>img/key.jpg" alt="foto"></div>
-                    	<?php }
-                    	else{ echo "<div class='row'><div class='col-3'></div><div class='col-6'>tidak ada file FOTO</div></div>"; }
                     	if ($daftar->file_ktm!="") { ?>
                         <div class="col-4"><img src="<?php echo base_url();?>img/key.jpg" alt="ktm"></div>
-                    	<?php }
-                    	else{ echo "<div class='row'><div class='col-3'></div><div class='col-6'>tidak ada file KTM<</div></div>"; }
-                    	if ($daftar->bukti_bayar!="") { 
+                    	<?php if ($daftar->bukti_bayar!="") { 
                     	?>
                         <div class="col-3"><img src="<?php echo base_url();?>img/key.jpg" alt="bukti bayar"></div>
                     	<?php } else{ echo "<div class='row'><div class='col-3'></div><div class='col-6'>belum ada bukti pembayaran</div></div>"; }?>
