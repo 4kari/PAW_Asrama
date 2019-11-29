@@ -36,7 +36,7 @@
                                             echo "<td> $row->prodi</td>";
                                             echo "<td> $row->alamat</td>";
                                             echo "<td> $jk->jk</td>";?>
-                                            <td> <a href="<?php echo site_url('pengurus/show_pendaftaran/'); echo($id); ?>" class="btn btn-success">Lihat</a></td>
+                                            <td> <a href="<?php echo site_url('pengurus/proses_pendaftaran/'); echo($id); ?>" class="btn btn-success">Lihat</a></td>
                                         <?php
                                         echo "</tr>";
                                     }
