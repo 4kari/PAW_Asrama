@@ -47,8 +47,8 @@
                         <div class="row m-4">
                             <div class="col-4"></div>
                             <div class="col-4 text-center">
-                                <?php if($daftar->bukti_bayar!=""){?><a href="" class="btn btn-success">LOLOS</a>&nbsp;&nbsp;&nbsp; <?php } ?>
-                                <a href="" class="btn btn-danger">Gagal</a>
+                                <?php if($daftar->bukti_bayar!=""){?><a href="<?php echo site_url('pengurus/proses_pendaftaran/0/'); echo($id);?>" class="btn btn-success">LOLOS</a>&nbsp;&nbsp;&nbsp; <?php } ?>
+                                <a href="<?php echo site_url('pengurus/proses_pendaftaran/0/0/'); echo($id);?>" class="btn btn-danger">Gagal</a>
                             </div>
                             <div class="col-4">
                             </div>
