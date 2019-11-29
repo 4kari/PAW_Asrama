@@ -23,9 +23,18 @@ class pengurus extends CI_Controller {
 	public function perizinan(){
 		$this->load->view('user/pengurus/konfirmasi/perizinan');
 	}
-	public function show_pendaftaran($id){
+	public function proses_pendaftaran($id,$ver=0,$unver=0){
 		$data['id']=$id;
-		$this->load->view("user/pengurus/konfirmasi/show_pendaftaran", $data);
+		if($ver!=0 || $unver!=0){
+			if($ver!=0){
+				echo "ver";
+			}
+			if($unver!=0){
+				echo "unver";
+			}
+		}else{
+			$this->load->view("user/pengurus/konfirmasi/show_pendaftaran", $data);
+		}
 	}
 	public function warga(){
 		$this->load->view('user/pengurus/data/warga');
@@ -47,8 +56,5 @@ class pengurus extends CI_Controller {
 	}
 	public function settings(){
 		$this->load->view('user/pengurus/settings');
-	}
-	public function logout(){
-		$this->load->view('user/pengurus/logout');
 	}
 }
