@@ -19,12 +19,12 @@ class model_pengurus extends CI_Model {
 	public $bukti_bayar;
 	public $keterangan;
 	
-	public function veriv(){
+	public function veriv($id){
 		$inp=array('keterangan' => 'Sudah di verivikasi silahkan buat akun');
 		$this->db->where('id_daftar',$id);
 		$this->db->update($this->_table, $inp);
 	}
-	public function unveriv(){
+	public function unveriv($id){
 		return $this->db->delete($this->_table, array("id_daftar" => $id));
 	}
 }
