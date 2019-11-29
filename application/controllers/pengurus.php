@@ -29,11 +29,11 @@ class pengurus extends CI_Controller {
 		$data['id']=$id;
 		if($ver!=0 || $unver!=0){
 			if($ver!=0){
-				$model->veriv();
+				$model->veriv($ver);
 				$this->load->view("user/pengurus/konfirmasi/pendaftaran");
 			}
 			if($unver!=0){
-				$model->unveriv();
+				$model->unveriv($unver);
 				$this->load->view("user/pengurus/konfirmasi/pendaftaran");
 			}
 		}else{
