@@ -6,7 +6,9 @@ class pengurus extends CI_Controller {
 		parent::__construct();
 		if ($_SESSION["level"]!=1){
 			redirect('login');
+			$model=$this->model_pengurus;
 		}
+		$this->load->model("model_pengurus");
 	}
 	public function index(){
 		$this->load->view("user/pengurus/index");
@@ -27,10 +29,12 @@ class pengurus extends CI_Controller {
 		$data['id']=$id;
 		if($ver!=0 || $unver!=0){
 			if($ver!=0){
-				echo "ver";
+				$model->veriv();
+				$this->load->view("user/pengurus/konfirmasi/pendaftaran");
 			}
 			if($unver!=0){
-				echo "unver";
+				$model->unveriv();
+				$this->load->view("user/pengurus/konfirmasi/pendaftaran");
 			}
 		}else{
 			$this->load->view("user/pengurus/konfirmasi/show_pendaftaran", $data);
