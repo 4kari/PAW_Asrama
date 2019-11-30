@@ -12,15 +12,15 @@
           <h1>Buat Akun Warga</h1>
           <div class="form-group">
           <label>NIM</label>
-          <input type="text" name="nim" placeholder="NIM mahasiswa" class="form-control">
+          <input type="text" name="nim" placeholder="NIM mahasiswa" class="form-control required">
           </div>
           <div class="form-group">
           <label>Username</label>
-          <input type="text" name="username" placeholder="Username" class="form-control">
+          <input type="text" name="username" placeholder="Username" class="form-control required">
           </div>
           <div class="form-group">
           <label>Password</label>
-          <input type="password" name="password" placeholder="Password" class="form-control">
+          <input type="password" name="password" placeholder="Password" class="form-control required">
           </div>
           <button type="submit" class="btn btn-success btn-block">Submit</button>
         </form>
