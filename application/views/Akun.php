@@ -8,11 +8,12 @@
     <div class="row">
       <div class="col-md-4 col-sm-4 col-xs-12"></div>
       <div class="col-md-4 col-sm-4 col-xs-12 p-3 bg-light">
-        <form>
+        <form method="POST" action="daftar/buat">
           <h1>Buat Akun Warga</h1>
           <div class="form-group">
           <label>NIM</label>
           <input type="text" name="nim" placeholder="NIM mahasiswa" class="form-control required">
+          <a><?php ?></a>
           </div>
           <div class="form-group">
           <label>Username</label>
