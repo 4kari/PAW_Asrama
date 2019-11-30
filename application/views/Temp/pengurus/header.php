@@ -1,3 +1,7 @@
+<?php
+  $username=$_SESSION['user'];
+  $data=$this->db->get_where('pengurus',["user_pengurus" => $username])->row();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,9 +27,23 @@
       <li class="nav-item active">
         <a class="nav-link" href="<?php echo site_url('pengurus')?>">Home</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('pengurus/profil')?>">Profil</a>
+      <li class="nav-item dropdown notifications-menu">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown">
+          <span class="label label-warning">data</span>
+          <i class="fa fa-bell"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="<?php echo site_url('pengurus/warga/nnn')?>">Warga</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="<?php echo site_url('pengurus/musahil')?>">Musahil</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="<?php echo site_url('pengurus/pelanggaran')?>">Pelanggaran</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="<?php echo site_url('pengurus/kegiatan2')?>">Kegiatan</a> 
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="<?php echo site_url('pengurus/izin')?>">izin</a>
       </li>
+      
       <li class="nav-item dropdown notifications-menu">
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown">
           <span class="label label-warning">Konfirmasi</span>
@@ -37,10 +55,21 @@
           <a class="dropdown-item" href="<?php echo site_url('pengurus/pembayaran')?>">Pembayaran</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="<?php echo site_url('pengurus/kegiatan')?>">Kegiatan</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="<?php echo site_url('pengurus/perizinan')?>">Perizinan</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?= site_url('login/logout'); ?>">Logout</a>
-      </li>
+      <li class="nav-item dropdown notifications-menu">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown">
+          <!-- <span class="label label-warning"><img src="<?php echo base_url('img/'); echo $data->foto;?>"></span> -->
+            <img  src="<?php echo base_url('img/');?>profil.jpg" class="profil"><?php echo $data->user_pengurus; ?>
+        </a> 
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="<?php echo site_url('pengurus/account')?>">Account</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="<?php echo site_url('pengurus/settings')?>">Settings</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="<?php echo site_url('login/logout')?>">Logout</a>
+      </li> 
     </ul>
   </div>
 </nav>
