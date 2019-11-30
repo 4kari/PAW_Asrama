@@ -35,4 +35,9 @@ class daftar extends CI_Controller {
 	public function informasi(){
 		$this->load->view('informasi');
 	}
+	
+	public function buat(){
+		$model=$this->load->model("model_daftar");
+		$model->cekakun();
+	}
 }
