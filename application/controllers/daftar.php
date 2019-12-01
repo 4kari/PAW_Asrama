@@ -39,5 +39,6 @@ class daftar extends CI_Controller {
 	public function buat(){
 		$model=$this->load->model("model_daftar");
 		$model->cekakun();
+		redirect('daftar/buatakun');
 	}
 }
