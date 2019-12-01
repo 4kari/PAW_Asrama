@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-md-4 col-sm-4 col-xs-12"></div>
       <div class="col-md-4 col-sm-4 col-xs-12 p-3 bg-light">
-        <form method="POST" action="daftar/buat">
+        <form method="POST" action="<?php echo site_url('daftar/buat'); ?>">
           <h1>Buat Akun Warga</h1>
           <div class="form-group">
           <label>NIM</label>
