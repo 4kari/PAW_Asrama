@@ -16,6 +16,8 @@ class daftar extends CI_Controller {
 	public function add(){
 		$model=$this->model_daftar;
 		$model->save();
+	}
+	public function berhasil(){
 		$this->load->view("berhasil");
 	}
 	public function bayar(){
@@ -35,9 +37,8 @@ class daftar extends CI_Controller {
 	public function informasi(){
 		$this->load->view('informasi');
 	}
-	
 	public function buat(){
-		$model=$this->load->model("model_daftar");
+		$model=$this->model_daftar;
 		$model->cekakun();
 		redirect('daftar/buatakun');
 	}
