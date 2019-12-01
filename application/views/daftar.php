@@ -3,6 +3,7 @@
     $_SESSION['page']='Pendaftaran';
     $this->load->view('Temp/header');
     $this->load->view('Temp/mlog');
+    //echo $_SESSION['daftar'];
 ?>
 <!--- Form Daftar --->
 <div class="container-fluid bg p-4">
