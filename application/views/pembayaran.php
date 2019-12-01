@@ -2,6 +2,7 @@
     $_SESSION['page']='Pembayaran';
     $this->load->view('Temp/header');
     $this->load->view('Temp/mlog');
+    //echo $_SESSION['bayar'];
 ?>
 <!--- Form Daftar --->
 <div class="container-fluid bg p-4">
