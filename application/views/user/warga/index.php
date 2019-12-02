@@ -69,11 +69,7 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img  src="<?php echo base_url();?>img/b.jpg" alt="slide">
-      <div class="carousel-caption text-center">
-        <h1>Selamat Datang</h1>
-        <h3>Di Beranda Warga Asrama</h3
-      </div>
+      <img  src="<?php echo base_url();?>img/key8.jpg" alt="slide">
     </div>
 </body>
 </html>
