@@ -11,4 +11,19 @@ class musahil extends CI_Controller {
 	public function index(){
 		$this->load->view("user/musahil/index");
 	}
+	public function kamar(){
+		$this->load->view('user/musahil/kamar');
+	}
+	public function pulang(){
+
+	}
+	public function account(){
+
+	}
+	public function settings(){
+
+	}
+	public function proses_kamar($code){
+
+	}
 }
