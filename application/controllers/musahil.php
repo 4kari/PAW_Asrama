@@ -23,7 +23,7 @@ class musahil extends CI_Controller {
 	public function settings(){
 
 	}
-	public function proses_kamar($code){
+	public function proses_kamar(){
 
 	}
 }
