@@ -56,15 +56,6 @@
     <p class="lead">- Mendukung mahasiswa dalam memperoleh keluasan ilmu, prestasi dan kemantapan profesional</p>
     <p class="lead">- Memberikan mahasiswa keterampilan tambahan dan dukungan pengembangan minat dan bakat</p>
     <p class="lead">- Memberikan bekal empati dan kepedulian sosial dan kemasyarakatan</p>
-    <p class="lead"></p>
-    <p class="lead"></p>
-    <p class="lead"></p>
-    <p class="lead"></p>
-    <p class="lead"></p>
-    <p class="lead"></p>
-    <p class="lead"></p>
-    <p class="lead"></p>
-
     <a class="btn btn-secondary btn-md" href="">See More</a>
   </div>
 </div>
