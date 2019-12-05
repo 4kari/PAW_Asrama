@@ -28,10 +28,13 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-          izin
+          Prosedur
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="<?php echo site_url('izin') ?>">Izin</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="<?php echo site_url('izin/bayar') ?>">Info Izin</a>
+          <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="<?php echo site_url('izin/bayar') ?>">Pembayaran</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="<?php echo site_url('') ?>">Informasi Pembayaran</a>
@@ -64,6 +67,10 @@
       <div class="col-md-4 col-sm-4 col-xs-12 p-3 bg-light">
         <form>
           <h1>Pembayaran</h1>
+          <div class="form-group">
+          <label>Semester</label>
+          <input type="text" name="nim" placeholder="Tanggal" class="form-control">
+          </div>
           <div class="form-group">
           <label>Tanggal Bayar</label>
           <input type="text" name="nim" placeholder="Tanggal" class="form-control">
