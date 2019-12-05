@@ -33,6 +33,8 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="<?php echo site_url('izin') ?>">Izin</a>
           <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="<?php echo site_url('izin/bayar') ?>">Info Izin</a>
+          <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="<?php echo site_url('izin/bayar') ?>">Pembayaran</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="<?php echo site_url('') ?>">Informasi Pembayaran</a>
