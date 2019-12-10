@@ -59,6 +59,5 @@
     <a class="btn btn-secondary btn-md" href="">See More</a>
   </div>
 </div>
-
 </body>
 </html>
