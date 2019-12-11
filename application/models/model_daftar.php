@@ -5,6 +5,7 @@ class model_daftar extends CI_Model {
 		parent::__construct();
 		$config['upload_path']='./img/';
 		$config['allowed_types'] = 'gif|jpg|png|zip';
+		$config['max_size']="0";
 		$this->load->library('upload',$config);
 	}
 	private $_table="pendaftaran";
