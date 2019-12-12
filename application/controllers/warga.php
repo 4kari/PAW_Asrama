@@ -7,8 +7,20 @@ class warga extends CI_Controller {
 		if ($_SESSION["level"]!=3){
 			redirect('login');
 		}
+	$this->load->model('model_warga');
 	}
 	public function index(){
 		$this->load->view('user/warga/index');
+	}
+	public function izin(){
+		$this->load->view('user/warga/izin');
+	}
+	public function profil(){
+		$this->load->view('user/warga/profilwar');
+	}
+	public function bayar(){
+		$model=$this->model_warga;
+		$model->bayar();
+
 	}
 }
