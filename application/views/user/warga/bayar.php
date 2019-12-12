@@ -1,4 +1,6 @@
 <?php
+    $_SESSION['page']='Pembayaran';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,7 +26,7 @@
         <a class="nav-link" href="">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Profil</a>
+        <a class="nav-link" href="<?= site_url('warga/profil'); ?>">Profil</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
@@ -33,7 +35,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="<?php echo site_url('izin') ?>">Izin</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<?php echo site_url('izin/bayar') ?>">Info Izin</a>
+          <a class="dropdown-item" href="<?php echo site_url('') ?>">Info Izin</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="<?php echo site_url('izin/bayar') ?>">Pembayaran</a>
           <div class="dropdown-divider"></div>
@@ -44,9 +46,6 @@
           <a class="dropdown-item" href="<?php echo site_url('') ?>">Pelanggaran</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="<?php echo site_url('') ?>">Informasi</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<?php echo site_url('') ?>">Keluar Asrama</a>
-        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="">Kegiatan</a>
@@ -65,19 +64,19 @@
     <div class="row">
       <div class="col-md-4 col-sm-4 col-xs-12"></div>
       <div class="col-md-4 col-sm-4 col-xs-12 p-3 bg-light">
-        <form>
+      <form method="post" action="<?php echo site_url('warga/bayar'); ?>" enctype="multipart/form-data" >
           <h1>Pembayaran</h1>
           <div class="form-group">
-          <label>Semester</label>
-          <input type="text" name="nim" placeholder="Tanggal" class="form-control">
+          <label>Tanggal Bayar</label>
+          <input type="text" name="tgl_bayar" placeholder="Tanggal" class="form-control">
           </div>
           <div class="form-group">
-          <label>Tanggal Bayar</label>
-          <input type="text" name="nim" placeholder="Tanggal" class="form-control">
+          <label>Jumlah Bayar</label>
+          <input type="text" name="jml" placeholder="Jumlah" class="form-control">
           </div>
           <div class="form-group">
           <label>Bukti Pembayaran</label>
-          <input type="file" name="bukti" class="form-control">
+          <input type="file" name="bukti" class="form-control" required>
           </div>
           <button type="submit" class="btn btn-success btn-block">Submit</button>
         </form>
