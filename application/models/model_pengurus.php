@@ -5,20 +5,6 @@ class model_pengurus extends CI_Model {
 		parent::__construct();
 	}
 	private $_table="pendaftaran";
-	public $id_daftar;
-	public $namalengkap;
-	public $nim;
-	public $prodi;
-	public $alamat;
-	public $id_jk;
-	public $foto;
-	public $file_ktm;
-	public $id_pengurus;
-	public $tgl_lahir;
-	public $nowa;
-	public $bukti_bayar;
-	public $keterangan;
-	
 	public function veriv($id){
 		$inp=array('keterangan' => 'Sudah di verivikasi silahkan buat akun');
 		$this->db->where('id_daftar',$id);
@@ -26,5 +12,18 @@ class model_pengurus extends CI_Model {
 	}
 	public function unveriv($id){
 		return $this->db->delete($this->_table, array("id_daftar" => $id));
+	}
+	public function perizinan($id,$choose){
+		if($choose==1){
+			$pengurus=$this->db->get_where('pengurus',["user_pengurus" => $_SESSION['user']])->row();
+			$id_pengurus=$pengurus->id_pengurus;
+			$data = array('id_pengurus' => $id_pengurus);
+			$this->db->where('id_izin',$id);
+			$this->db->update('izin', $data);
+		}
+		else{
+			return $this->db->delete('izin', array("id_izin" => $id));
+		}
+		redirect('pengurus/perizinan');
 	}
 }
