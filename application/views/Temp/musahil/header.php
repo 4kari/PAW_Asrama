@@ -32,7 +32,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="<?php echo site_url('musahil/kamar') ?>">Kamar</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<?php echo site_url('musahil/pulang') ?>">Pulang</a>
+          <a class="dropdown-item" href="<?php echo site_url('musahil/perizinan') ?>">Perizinan</a>
         </div>
       </li>
       <li class="nav-item dropdown notifications-menu">
