@@ -1,4 +1,4 @@
-<?php echo form_open_multipart('musahil/proses_kamar/0');
+<?php echo form_open_multipart('musahil/proses_kamar');
 ?>
   <div class="modal fade" id="Tkamar">
     <div class="modal-dialog">
@@ -9,13 +9,14 @@
         </div>
 
         <div class="modal-body">
+          <input type="hidden" id="id" name="id">
             <div class="form-group">
             <label>Kamar</label>
-            <input type="text" id="kamar" name="kamar" placeholder="kamar" class="form-control">
+            <input type="text" id="kamar" name="kamar" placeholder="kamar" class="form-control" required>
             </div>
             <div class="form-group">
             <label>Gedung</label>
-            <input type="text" id="gedung" name="gedung" placeholder="gedung" class="form-control">
+            <input type="text" id="gedung" name="gedung" placeholder="gedung" class="form-control" required>
             </div>
         </div>
         <div class="modal-footer">
