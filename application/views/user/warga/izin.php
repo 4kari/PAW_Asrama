@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Beranda-Warga Asrama</title>
-  	<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>css/style.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <title>Beranda-Warga Asrama</title>
+    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -24,16 +24,16 @@
         <a class="nav-link" href="">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Profil</a>
+        <a class="nav-link" href="<?= site_url('warga/profil'); ?>">Profil</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-          Prosedur
+          prosedur
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="<?php echo site_url('izin') ?>">Izin</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<?php echo site_url('izin/bayar') ?>">Info Izin</a>
+          <a class="dropdown-item" href="<?php echo site_url('') ?>">Info Izin</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="<?php echo site_url('izin/bayar') ?>">Pembayaran</a>
           <div class="dropdown-divider"></div>
@@ -44,9 +44,6 @@
           <a class="dropdown-item" href="<?php echo site_url('') ?>">Pelanggaran</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="<?php echo site_url('') ?>">Informasi</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<?php echo site_url('') ?>">Keluar Asrama</a>
-        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="">Kegiatan</a>
