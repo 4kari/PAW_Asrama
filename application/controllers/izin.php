@@ -17,6 +17,7 @@ class izin extends CI_Controller {
 	public function informasi(){
 
 	}
+
 	public function insdata(){
 		$nama=$this->input->post('tglmulai');
 		$nim=$this->input->post('tglkembali');
