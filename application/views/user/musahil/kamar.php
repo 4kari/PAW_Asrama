@@ -9,13 +9,22 @@
         <div class="section__content section__content--p30">
             <div class="container-fluid">
 				<div class="row">
-                    <div class="col-lg-11">
+                    <div class="col-lg-12">
                         <h2 class="title-1 m-b-25">Data Warga Baru</h2>
                         <div class="table-responsive table--no-card m-b-40">
+                            <?php 
+                            $row=0;
+                            foreach ($warga as $key) {
+                                if($key->kamar=="" || $key->gedung==""){
+                                    $row+=1;
+                                }
+                            }
+                            if ($row>0){ ?>
                             <table class="table table-borderless table-striped table-earning">
                                 <thead>
                                     <?php
                                         echo "<tr>";
+                                            echo "<th> Id </th>";
                                             echo "<th> Nama </th>";
                                             echo "<th> NIM </th>";
                                             echo "<th> Kamar </th>";
@@ -31,6 +40,7 @@
                                         if($row->kamar=="" && $row->gedung==""){
                                             $id=$row->id_warga;
                                             echo "<tr>";
+                                                echo "<td> $row->id_warga</td>";
                                                 echo "<td> $row->nama_warga</td>";
                                                 echo "<td> $row->nim_warga</td>";
                                                 echo "<td> $row->kamar</td>";
@@ -46,18 +56,31 @@
                                     ?>
                                 </tbody>
                             </table>
+                            <?php }else{
+                            echo "<h4>tidak ada data</h4>";
+                            }
+                            ?>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-11">
+                    <div class="col-lg-12">
                         <h2 class="title-1 m-b-25">Data Warga Lama</h2>
                         <div class="table-responsive table--no-card m-b-40">
+                            <?php 
+                            $row=0;
+                            foreach ($warga as $key) {
+                                if($key->kamar!="" || $key->gedung!=""){
+                                    $row+=1;
+                                }
+                            }
+                            if ($row>0){ ?>
                             <table class="table table-borderless table-striped table-earning">
                                 <thead>
                                     <?php
                                         echo "<tr>";
+                                            echo "<th> id </th>";
                                             echo "<th> Nama </th>";
                                             echo "<th> NIM </th>";
                                             echo "<th> Kamar </th>";
@@ -71,8 +94,8 @@
                                     <?php
                                     foreach ($warga as $row) {
                                         if($row->kamar!="" || $row->gedung!=""){
-                                            $id=$row->id_warga;
                                             echo "<tr>";
+                                                echo "<td> $row->id_warga</td>";
                                                 echo "<td> $row->nama_warga</td>";
                                                 echo "<td> $row->nim_warga</td>";
                                                 echo "<td> $row->kamar</td>";
@@ -88,6 +111,10 @@
                                     ?>
                                 </tbody>
                             </table>
+                        <?php }else{
+                            echo "<h4>tidak ada data</h4>";
+                        }
+                        ?>
                             </div>
                         </div>
                     </div>
@@ -108,8 +135,10 @@
             var data=$tr.children("td").map(function(){
                 return $(this).text();
             }).get();
-            $("#kamar").val(data[2]);
-            $("#gedung").val(data[3]);
+
+            $("#id").val(data[0]);
+            $("#kamar").val(data[3]);
+            $("#gedung").val(data[4]);
         })
     })
     $(document).ready(function(){
@@ -120,8 +149,9 @@
             var data=$tr.children("td").map(function(){
                 return $(this).text();
             }).get();
-            $("#kamar").val(data[2]);
-            $("#gedung").val(data[3]);
+            $("#id").val(data[0]);
+            $("#kamar").val(data[3]);
+            $("#gedung").val(data[4]);
         })
     })
 </script>
