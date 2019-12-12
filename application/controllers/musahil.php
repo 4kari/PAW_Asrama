@@ -7,6 +7,7 @@ class musahil extends CI_Controller {
 		if ($_SESSION["level"]!=2){
 			redirect('login');
 		}
+		$this->load->model("model_musahil");
 	}
 	public function index(){
 		$this->load->view("user/musahil/index");
@@ -15,7 +16,7 @@ class musahil extends CI_Controller {
 		$this->load->view('user/musahil/kamar');
 	}
 	public function pulang(){
-
+		$this->load->view('user/musahil/pulang');
 	}
 	public function account(){
 
@@ -24,6 +25,8 @@ class musahil extends CI_Controller {
 
 	}
 	public function proses_kamar(){
-
+		$model=$this->model_musahil;
+		$id=$this->input->post()['id'];
+		$model->kamar($id);
 	}
 }
