@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Des 2019 pada 03.55
--- Versi server: 10.1.31-MariaDB
--- Versi PHP: 7.2.3
+-- Generation Time: Dec 14, 2019 at 05:06 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,37 +25,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `absensi`
---
-
-CREATE TABLE `absensi` (
-  `id_absen` int(11) NOT NULL,
-  `id_kegiatan` int(11) NOT NULL,
-  `id_warga` int(11) NOT NULL,
-  `tgl_absen` date NOT NULL,
-  `keterangan` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `izin`
+-- Table structure for table `izin`
 --
 
 CREATE TABLE `izin` (
   `id_izin` int(11) NOT NULL,
   `id_warga` int(11) NOT NULL,
-  `tglmulai` date NOT NULL,
-  `tglkembali` date NOT NULL,
+  `tglmulai` varchar(20) NOT NULL,
+  `tglkembali` varchar(20) NOT NULL,
   `ket_izin` varchar(50) NOT NULL,
-  `id_musahil` int(11) NOT NULL,
-  `id_pengurus` int(11) NOT NULL
+  `id_musahil` int(11) DEFAULT NULL,
+  `id_pengurus` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jk`
+-- Table structure for table `jk`
 --
 
 CREATE TABLE `jk` (
@@ -64,7 +50,7 @@ CREATE TABLE `jk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `jk`
+-- Dumping data for table `jk`
 --
 
 INSERT INTO `jk` (`id_jk`, `jk`) VALUES
@@ -74,19 +60,19 @@ INSERT INTO `jk` (`id_jk`, `jk`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kegiatan`
+-- Table structure for table `kegiatan`
 --
 
 CREATE TABLE `kegiatan` (
   `id_kegiatan` int(11) NOT NULL,
   `nama_kegiatan` varchar(50) NOT NULL,
   `jenis_kegiatan` varchar(30) NOT NULL,
-  `tgl_kegiatan` date NOT NULL,
-  `waktu` time NOT NULL
+  `tgl_kegiatan` varchar(20) NOT NULL,
+  `waktu` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kegiatan`
+-- Dumping data for table `kegiatan`
 --
 
 INSERT INTO `kegiatan` (`id_kegiatan`, `nama_kegiatan`, `jenis_kegiatan`, `tgl_kegiatan`, `waktu`) VALUES
@@ -95,7 +81,7 @@ INSERT INTO `kegiatan` (`id_kegiatan`, `nama_kegiatan`, `jenis_kegiatan`, `tgl_k
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `musahil`
+-- Table structure for table `musahil`
 --
 
 CREATE TABLE `musahil` (
@@ -108,7 +94,7 @@ CREATE TABLE `musahil` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `musahil`
+-- Dumping data for table `musahil`
 --
 
 INSERT INTO `musahil` (`id_musahil`, `nama_musahil`, `kamar_musahil`, `gedung_musahil`, `nowa_musahil`, `user_musahil`) VALUES
@@ -117,7 +103,7 @@ INSERT INTO `musahil` (`id_musahil`, `nama_musahil`, `kamar_musahil`, `gedung_mu
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pelanggaran`
+-- Table structure for table `pelanggaran`
 --
 
 CREATE TABLE `pelanggaran` (
@@ -125,21 +111,21 @@ CREATE TABLE `pelanggaran` (
   `id_warga` int(11) NOT NULL,
   `id_sanksi` int(11) NOT NULL,
   `ket_pelanggaran` varchar(50) NOT NULL,
-  `tgl_pelanggaran` date NOT NULL,
+  `tgl_pelanggaran` varchar(20) NOT NULL,
   `id_pengurus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pembayaran`
+-- Table structure for table `pembayaran`
 --
 
 CREATE TABLE `pembayaran` (
   `id_bayar` int(11) NOT NULL,
   `id_warga` int(11) NOT NULL,
-  `id_pengurus` int(11) NOT NULL,
-  `tgl_bayar` date NOT NULL,
+  `id_pengurus` int(11) DEFAULT NULL,
+  `tgl_bayar` varchar(20) NOT NULL,
   `jml_bayar` varchar(30) NOT NULL,
   `ket_bayar` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -147,7 +133,7 @@ CREATE TABLE `pembayaran` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pendaftaran`
+-- Table structure for table `pendaftaran`
 --
 
 CREATE TABLE `pendaftaran` (
@@ -167,7 +153,7 @@ CREATE TABLE `pendaftaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pendaftaran`
+-- Dumping data for table `pendaftaran`
 --
 
 INSERT INTO `pendaftaran` (`id_daftar`, `namalengkap`, `nim`, `prodi`, `alamat`, `id_jk`, `foto`, `file_ktm`, `id_pengurus`, `tgl_lahir`, `nowa`, `bukti_bayar`, `keterangan`) VALUES
@@ -196,7 +182,7 @@ INSERT INTO `pendaftaran` (`id_daftar`, `namalengkap`, `nim`, `prodi`, `alamat`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengurus`
+-- Table structure for table `pengurus`
 --
 
 CREATE TABLE `pengurus` (
@@ -206,7 +192,7 @@ CREATE TABLE `pengurus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pengurus`
+-- Dumping data for table `pengurus`
 --
 
 INSERT INTO `pengurus` (`id_pengurus`, `user_pengurus`, `nama_pengurus`) VALUES
@@ -215,7 +201,7 @@ INSERT INTO `pengurus` (`id_pengurus`, `user_pengurus`, `nama_pengurus`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sanksi`
+-- Table structure for table `sanksi`
 --
 
 CREATE TABLE `sanksi` (
@@ -225,7 +211,7 @@ CREATE TABLE `sanksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `sanksi`
+-- Dumping data for table `sanksi`
 --
 
 INSERT INTO `sanksi` (`id_sanksi`, `jenis_sanksi`, `ket_sanksi`) VALUES
@@ -234,7 +220,7 @@ INSERT INTO `sanksi` (`id_sanksi`, `jenis_sanksi`, `ket_sanksi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -244,7 +230,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`username`, `password`, `level`) VALUES
@@ -256,7 +242,7 @@ INSERT INTO `user` (`username`, `password`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `wargaasrama`
+-- Table structure for table `wargaasrama`
 --
 
 CREATE TABLE `wargaasrama` (
@@ -276,7 +262,7 @@ CREATE TABLE `wargaasrama` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `wargaasrama`
+-- Dumping data for table `wargaasrama`
 --
 
 INSERT INTO `wargaasrama` (`id_warga`, `id_musahil`, `nama_warga`, `nim_warga`, `prodi_warga`, `id_jk`, `alamat`, `tgllahir`, `kamar`, `gedung`, `user_warga`, `nowa_warga`, `foto`) VALUES
@@ -288,15 +274,7 @@ INSERT INTO `wargaasrama` (`id_warga`, `id_musahil`, `nama_warga`, `nim_warga`, 
 --
 
 --
--- Indeks untuk tabel `absensi`
---
-ALTER TABLE `absensi`
-  ADD PRIMARY KEY (`id_absen`),
-  ADD KEY `kegi` (`id_kegiatan`),
-  ADD KEY `wra` (`id_warga`);
-
---
--- Indeks untuk tabel `izin`
+-- Indexes for table `izin`
 --
 ALTER TABLE `izin`
   ADD PRIMARY KEY (`id_izin`),
@@ -305,26 +283,26 @@ ALTER TABLE `izin`
   ADD KEY `pengu` (`id_pengurus`);
 
 --
--- Indeks untuk tabel `jk`
+-- Indexes for table `jk`
 --
 ALTER TABLE `jk`
   ADD PRIMARY KEY (`id_jk`);
 
 --
--- Indeks untuk tabel `kegiatan`
+-- Indexes for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
   ADD PRIMARY KEY (`id_kegiatan`);
 
 --
--- Indeks untuk tabel `musahil`
+-- Indexes for table `musahil`
 --
 ALTER TABLE `musahil`
   ADD PRIMARY KEY (`id_musahil`),
   ADD KEY `user_musahil` (`user_musahil`);
 
 --
--- Indeks untuk tabel `pelanggaran`
+-- Indexes for table `pelanggaran`
 --
 ALTER TABLE `pelanggaran`
   ADD PRIMARY KEY (`id_pelanggaran`),
@@ -333,7 +311,7 @@ ALTER TABLE `pelanggaran`
   ADD KEY `pengurus` (`id_pengurus`);
 
 --
--- Indeks untuk tabel `pembayaran`
+-- Indexes for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`id_bayar`),
@@ -341,7 +319,7 @@ ALTER TABLE `pembayaran`
   ADD KEY `pengur` (`id_pengurus`);
 
 --
--- Indeks untuk tabel `pendaftaran`
+-- Indexes for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
   ADD PRIMARY KEY (`id_daftar`),
@@ -349,26 +327,26 @@ ALTER TABLE `pendaftaran`
   ADD KEY `jkk` (`id_jk`);
 
 --
--- Indeks untuk tabel `pengurus`
+-- Indexes for table `pengurus`
 --
 ALTER TABLE `pengurus`
   ADD PRIMARY KEY (`id_pengurus`),
   ADD KEY `user_pengurus` (`user_pengurus`);
 
 --
--- Indeks untuk tabel `sanksi`
+-- Indexes for table `sanksi`
 --
 ALTER TABLE `sanksi`
   ADD PRIMARY KEY (`id_sanksi`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`username`);
 
 --
--- Indeks untuk tabel `wargaasrama`
+-- Indexes for table `wargaasrama`
 --
 ALTER TABLE `wargaasrama`
   ADD PRIMARY KEY (`id_warga`),
@@ -377,88 +355,75 @@ ALTER TABLE `wargaasrama`
   ADD KEY `user_warga` (`user_warga`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `absensi`
---
-ALTER TABLE `absensi`
-  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `izin`
+-- AUTO_INCREMENT for table `izin`
 --
 ALTER TABLE `izin`
   MODIFY `id_izin` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `jk`
+-- AUTO_INCREMENT for table `jk`
 --
 ALTER TABLE `jk`
   MODIFY `id_jk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `kegiatan`
+-- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
   MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `musahil`
+-- AUTO_INCREMENT for table `musahil`
 --
 ALTER TABLE `musahil`
   MODIFY `id_musahil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `pelanggaran`
+-- AUTO_INCREMENT for table `pelanggaran`
 --
 ALTER TABLE `pelanggaran`
   MODIFY `id_pelanggaran` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `pembayaran`
+-- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
   MODIFY `id_bayar` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `pendaftaran`
+-- AUTO_INCREMENT for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
   MODIFY `id_daftar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT untuk tabel `pengurus`
+-- AUTO_INCREMENT for table `pengurus`
 --
 ALTER TABLE `pengurus`
   MODIFY `id_pengurus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `sanksi`
+-- AUTO_INCREMENT for table `sanksi`
 --
 ALTER TABLE `sanksi`
   MODIFY `id_sanksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `wargaasrama`
+-- AUTO_INCREMENT for table `wargaasrama`
 --
 ALTER TABLE `wargaasrama`
   MODIFY `id_warga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `absensi`
---
-ALTER TABLE `absensi`
-  ADD CONSTRAINT `kegi` FOREIGN KEY (`id_kegiatan`) REFERENCES `kegiatan` (`id_kegiatan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `wra` FOREIGN KEY (`id_warga`) REFERENCES `wargaasrama` (`id_warga`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `izin`
+-- Constraints for table `izin`
 --
 ALTER TABLE `izin`
   ADD CONSTRAINT `izin` FOREIGN KEY (`id_warga`) REFERENCES `wargaasrama` (`id_warga`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -466,13 +431,13 @@ ALTER TABLE `izin`
   ADD CONSTRAINT `pengu` FOREIGN KEY (`id_pengurus`) REFERENCES `pengurus` (`id_pengurus`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `musahil`
+-- Constraints for table `musahil`
 --
 ALTER TABLE `musahil`
   ADD CONSTRAINT `user_musahil` FOREIGN KEY (`user_musahil`) REFERENCES `user` (`username`) ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `pelanggaran`
+-- Constraints for table `pelanggaran`
 --
 ALTER TABLE `pelanggaran`
   ADD CONSTRAINT `pelanggaran` FOREIGN KEY (`id_warga`) REFERENCES `wargaasrama` (`id_warga`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -480,27 +445,27 @@ ALTER TABLE `pelanggaran`
   ADD CONSTRAINT `sanksi` FOREIGN KEY (`id_sanksi`) REFERENCES `sanksi` (`id_sanksi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `pembayaran`
+-- Constraints for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
   ADD CONSTRAINT `pengur` FOREIGN KEY (`id_pengurus`) REFERENCES `pengurus` (`id_pengurus`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `warga` FOREIGN KEY (`id_warga`) REFERENCES `wargaasrama` (`id_warga`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `pendaftaran`
+-- Constraints for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
   ADD CONSTRAINT `jkk` FOREIGN KEY (`id_jk`) REFERENCES `jk` (`id_jk`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `peng` FOREIGN KEY (`id_pengurus`) REFERENCES `pengurus` (`id_pengurus`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `pengurus`
+-- Constraints for table `pengurus`
 --
 ALTER TABLE `pengurus`
   ADD CONSTRAINT `user_pengurus` FOREIGN KEY (`user_pengurus`) REFERENCES `user` (`username`) ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `wargaasrama`
+-- Constraints for table `wargaasrama`
 --
 ALTER TABLE `wargaasrama`
   ADD CONSTRAINT `idmusahil` FOREIGN KEY (`id_musahil`) REFERENCES `musahil` (`id_musahil`) ON DELETE CASCADE ON UPDATE CASCADE,
