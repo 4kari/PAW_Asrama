@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2019 at 03:36 PM
+-- Generation Time: Dec 15, 2019 at 11:54 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -21,6 +21,22 @@ SET time_zone = "+00:00";
 --
 -- Database: `tapaw`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `izin`
+--
+
+CREATE TABLE `izin` (
+  `id_izin` int(11) NOT NULL,
+  `id_warga` int(11) NOT NULL,
+  `tglmulai` varchar(20) NOT NULL,
+  `tglkembali` varchar(20) NOT NULL,
+  `ket_izin` varchar(50) NOT NULL,
+  `id_musahil` int(11) DEFAULT NULL,
+  `id_pengurus` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
