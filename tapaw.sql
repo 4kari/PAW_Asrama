@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2019 at 05:06 AM
+-- Generation Time: Dec 15, 2019 at 03:36 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -21,22 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `tapaw`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `izin`
---
-
-CREATE TABLE `izin` (
-  `id_izin` int(11) NOT NULL,
-  `id_warga` int(11) NOT NULL,
-  `tglmulai` varchar(20) NOT NULL,
-  `tglkembali` varchar(20) NOT NULL,
-  `ket_izin` varchar(50) NOT NULL,
-  `id_musahil` int(11) DEFAULT NULL,
-  `id_pengurus` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -60,27 +44,6 @@ INSERT INTO `jk` (`id_jk`, `jk`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kegiatan`
---
-
-CREATE TABLE `kegiatan` (
-  `id_kegiatan` int(11) NOT NULL,
-  `nama_kegiatan` varchar(50) NOT NULL,
-  `jenis_kegiatan` varchar(30) NOT NULL,
-  `tgl_kegiatan` varchar(20) NOT NULL,
-  `waktu` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `kegiatan`
---
-
-INSERT INTO `kegiatan` (`id_kegiatan`, `nama_kegiatan`, `jenis_kegiatan`, `tgl_kegiatan`, `waktu`) VALUES
-(1, 'pulang', 'penting', '0000-00-00', '00:01:23');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `musahil`
 --
 
@@ -99,21 +62,6 @@ CREATE TABLE `musahil` (
 
 INSERT INTO `musahil` (`id_musahil`, `nama_musahil`, `kamar_musahil`, `gedung_musahil`, `nowa_musahil`, `user_musahil`) VALUES
 (3, 'nur', 2, 'r', '2334', 'musahil');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pelanggaran`
---
-
-CREATE TABLE `pelanggaran` (
-  `id_pelanggaran` int(11) NOT NULL,
-  `id_warga` int(11) NOT NULL,
-  `id_sanksi` int(11) NOT NULL,
-  `ket_pelanggaran` varchar(50) NOT NULL,
-  `tgl_pelanggaran` varchar(20) NOT NULL,
-  `id_pengurus` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -157,27 +105,28 @@ CREATE TABLE `pendaftaran` (
 --
 
 INSERT INTO `pendaftaran` (`id_daftar`, `namalengkap`, `nim`, `prodi`, `alamat`, `id_jk`, `foto`, `file_ktm`, `id_pengurus`, `tgl_lahir`, `nowa`, `bukti_bayar`, `keterangan`) VALUES
-(2, 'Ria Rostiani', '170411100042', 'T. Informatika', 'Blega', 2, 'coba.jpg', 'ktm.jpg', NULL, '18/12/1998', '080888000888', 'images.png', 'Sudah di verivikasi silahkan buat akun'),
-(3, 'Syaban', '170411100119', 'T. Informatika', 'Blega', 1, 'coba.jpg', 'ktm.jpg', NULL, '18/12/1998', '081000111000', NULL, 'tidak ada bukti pembayaran'),
-(4, 'pita', '170411100035', 'T. Informatika', 'Jalan', 2, 'coba.JPG', 'ktm.JPG', NULL, '18/12/1998', '0082322889883', NULL, 'tidak ada bukti pembayaran'),
-(6, 'Ashof Barkhia Ridwan', '170411100064', 'T. Informatika', 'Bangkalan', 1, 'coba.jpg', 'ktm.jpg', NULL, '22/10/97', '08521486524', NULL, 'tidak ada bukti pembayaran'),
-(9, 'Anas Trikrisna', '170411100007', 'T. Informatika', 'nganjuk', 1, 'bisnis.png', '1.jpg', NULL, '11/02/1999', '085114235123', 'images1.png', 'Sudah di verivikasi silahkan buat akun'),
-(10, 'Uzumaki Naruto', '170411100001', 'Sastra Inggris', 'Bekasi', 1, 'naruto.png', 'KTM_AshofBR_1704111000648.jpeg', NULL, '10/10/1997', '081234567890', NULL, 'tidak ada bukti pembayaran'),
-(11, 'Sasuke Uchiha', '170411100002', 'Sastra Inggris', 'Lajing', 1, 'naruto1.png', 'KTM_AshofBR_1704111000643.jpeg', NULL, '10/10/1997', '54568', NULL, 'tidak ada bukti pembayaran'),
-(12, 'Kakashi Hatake', '170411100003', 'Agrobisnis', 'Pejagan', 1, 'kakashi1.png', 'KTM_AshofBR_1704111000644.jpeg', NULL, '15/09/1997', '081234567890', NULL, 'tidak ada bukti pembayaran'),
-(13, 'Obito Uchiha', '170411100004', 'Psikologi', 'Bancaran', 1, 'obito.jpg', 'KTM_AshofBR_1704111000645.jpeg', NULL, '10/02/1997', '081234567890', NULL, 'tidak ada bukti pembayaran'),
-(14, 'Son Goku', '170411100005', 'PGSD', 'Kemayoran', 1, 'goku.png', 'KTM_AshofBR_1704111000646.jpeg', NULL, '08/03/1997', '081234567890', NULL, 'tidak ada bukti pembayaran'),
-(15, 'Vegeta', '170411100006', 'Teknik Elektro', 'Junok', 1, 'vegeta.png', 'KTM_AshofBR_1704111000647.jpeg', NULL, '13/04/1997', '081234567890', NULL, 'tidak ada bukti pembayaran'),
-(16, 'Sakura Haruno', '170411100008', 'Ekonomi Pembangunan', 'Arosbaya', 2, 'naruto2.png', 'KTM_AshofBR_1704111000649.jpeg', NULL, '28/03/1997', '081234567890', NULL, 'tidak ada bukti pembayaran'),
-(17, 'Chouji Akimichi', '170411100009', 'Sistem Informasi', 'Kamal', 1, 'naruto3.png', 'KTM_AshofBR_17041110006410.jpeg', NULL, '01/05/1997', '081234567890', NULL, 'tidak ada bukti pembayaran'),
-(18, 'Hanabi Hyuga', '170411100010', 'Teknik Mesin', 'Sepuluh', 2, 'naruto4.png', 'KTM_AshofBR_17041110006411.jpeg', NULL, '29/03/1997', '081234567890', NULL, 'tidak ada bukti pembayaran'),
-(19, 'Hana Inuzuka', '170411100011', 'Psikologi', 'Tangkel', 2, 'naruto5.png', 'KTM_AshofBR_17041110006412.jpeg', NULL, '13/04/1997', '081234567890', NULL, 'tidak ada bukti pembayaran'),
-(20, 'Tsunade Senju', '170411100012', 'PGTK', 'Sumur Kembang', 2, 'naruto6.png', 'KTM_AshofBR_17041110006413.jpeg', NULL, '02/08/1997', '081234567890', NULL, 'tidak ada bukti pembayaran'),
-(21, 'Shikamaru Nara', '170411100013', 'PGSMP', 'Sumenep', 1, 'goku1.png', 'KTM_AshofBR_17041110006414.jpeg', NULL, '22/09/1998', '081234567890', NULL, 'tidak ada bukti pembayaran'),
-(22, 'Ino Yamanaka', '170411100014', 'Ekonomi Syariah', 'Grogol', 2, 'kakashi11.png', 'KTM_AshofBR_17041110006415.jpeg', NULL, '23/09/1996', '081234567890', NULL, 'tidak ada bukti pembayaran'),
-(23, 'Kushina Uzumaki', '170411100015', 'Teknik Mekatronika', 'Surabaya', 2, 'danzo.jpg', 'KTM_AshofBR_17041110006416.jpeg', NULL, '10/07/1998', '08123467890', NULL, 'tidak ada bukti pembayaran'),
-(24, 'Itachi Uchiha', '170411100016', 'Sastra Jepang', 'Mojokerto', 1, 'vegeta1.png', 'KTM_AshofBR_17041110006417.jpeg', NULL, '09/06/1998', '081234567890', NULL, 'tidak ada bukti pembayaran'),
-(25, 'Sarada Uchiha', '170411100017', 'Teknik Sipil', 'Sidoarjo', 2, 'naruto7.png', 'KTM_AshofBR_17041110006418.jpeg', NULL, '15/05/1998', '081234567890', NULL, 'tidak ada bukti pembayaran');
+(27, 'Ahmad Khairi Ramadan', '170411100099', 'Teknik Informatika', 'Sampang', 1, 'coba.jpg', '1.jpg', NULL, '19/09/1999', '089763234567', 'key.jpg', 'menunggu validasi'),
+(28, 'YUNIA PUSPITA', '170411100035', 'Teknik Informatika', 'BOJONEGORO', 1, 'fotoku.jpg', 'key2.jpg', NULL, '12/06/1999', '082322889883', 'key21.jpg', 'Sudah di verivikasi silahkan buat akun'),
+(29, 'Suci Lestari', '170411100013', 'Sistem Informasi', 'Lamongan', 2, 'profil.jpg', 'ktm.jpg', NULL, '13/07/1997', '098765432123', 'key.jpg', 'menunggu validasi'),
+(30, 'Avi Eviana', '170411100011', 'Manajemen', 'Nganjuk', 2, 'profil.jpg', 'ktm.jpg', NULL, '20/01/1998', '086765345678', 'key.jpg', 'menunggu validasi'),
+(31, 'ASRI LESTARI', '170411100071', 'Teknik Industri', 'Tuban', 2, 'profil.jpg', 'key.jpg', NULL, '10/12/1998', '085234567890', 'key1.jpg', 'menunggu validasi'),
+(32, 'Deddy Corbuser', '180311100034', 'Teknik Mesin', 'Jakarta', 1, 'bisnis.png', 'key.jpg', NULL, '23/04/1997', '089765345123', NULL, 'tidak ada bukti pembayaran'),
+(33, 'Ricky Harun', '170322200017', 'Pendidikan Ipa', 'Bandung', 1, 'profil.jpg', 'key.jpg', NULL, '17/09/1998', '087654123456', NULL, 'tidak ada bukti pembayaran'),
+(34, 'Maia Estianty', '170211110038', 'Agribisnis', 'Surabaya', 2, 'profil.jpg', 'ktm.jpg', NULL, '17/08/1998', '087987987654', NULL, 'tidak ada bukti pembayaran'),
+(35, 'Rizky Febian', '160300211398', 'Agroteknologi', 'Jakarta', 1, 'profil.jpg', 'ktm.jpg', NULL, '20/09/1997', '087987098009', NULL, 'tidak ada bukti pembayaran'),
+(36, 'Nikita Willy', '170400011198', 'Teknik Industri', 'SURABAYA', 2, 'profil.jpg', 'ktm.jpg', NULL, '09/09/2000', '098765345321', NULL, 'tidak ada bukti pembayaran'),
+(37, 'Luna Maya', '180911100034', 'Manajemen', 'Kalimantan', 2, 'profil.jpg', 'ktm.jpg', NULL, '12/08/2000', '086789234123', NULL, 'tidak ada bukti pembayaran'),
+(38, 'Gilang Dirga', '170411100019', 'Agribisnis', 'Jombang', 1, 'profil.jpg', 'ktm.jpg', NULL, '13/09/1998', '089889887667', 'key.jpg', 'menunggu validasi'),
+(39, 'Ruben Onsu', '18021130003', 'Pendidikan Informatika', 'Gresik', 1, 'profil.jpg', 'ktm.jpg', NULL, '10/09/2000', '081234567890', NULL, 'tidak ada bukti pembayaran'),
+(40, 'Sania Marta D', '180911100023', 'Teknik Mesin', 'Malang', 2, 'profil.jpg', 'ktm.jpg', NULL, '23/08/1998', '081234456443', NULL, 'tidak ada bukti pembayaran'),
+(41, 'Nisa Sabyan', '18091110001', 'Sosiologi', 'Nganjuk', 2, 'profil.jpg', 'ktm.jpg', NULL, '19/07/2000', '089889887667', NULL, 'tidak ada bukti pembayaran'),
+(42, 'Sule Sule', '12081123003', 'Pendidikan Bahasa Indonesia', 'Bangkalan', 1, 'profil.jpg', 'ktm.jpg', NULL, '09/08/2000', '087654123123', NULL, 'tidak ada bukti pembayaran'),
+(43, 'Yusep Pendika', '180211100039', 'Keislaman', 'Pamekasan ', 1, 'profil.jpg', 'ktm.jpg', NULL, '14/09/1998', '087654234567', NULL, 'tidak ada bukti pembayaran'),
+(44, 'Rudi Widodo', '190811100009', 'Pendidikan Informatika', 'Jakarta', 1, 'profil.jpg', 'ktm.jpg', NULL, '25/09/1998', '098765345123', NULL, 'tidak ada bukti pembayaran'),
+(45, 'Heru Setiawan ', '19081100045', 'Sistem Informasi', 'Surabaya', 1, 'profil.jpg', 'ktm.jpg', NULL, '16/06/2000', '098765432112', NULL, 'tidak ada bukti pembayaran'),
+(46, 'Raffi Ahmad', '13091100023', 'Teknik Informatika', 'Jombang', 1, 'profil.jpg', 'ktm.jpg', NULL, '16/06/2000', '089767890987', NULL, 'tidak ada bukti pembayaran'),
+(47, 'Citra Kirana', '170411100096', 'Teknik Informatika', 'Jakarta', 2, 'profil.jpg', 'ktm.jpg', NULL, '12/08/2000', '081235678234', NULL, 'tidak ada bukti pembayaran'),
+(48, 'Syahrini', '180411100012', 'Agroteknologi', 'Bandung', 2, 'profil.jpg', 'ktm.jpg', NULL, '08/05/2000', '062345636242', NULL, 'tidak ada bukti pembayaran');
 
 -- --------------------------------------------------------
 
@@ -201,25 +150,6 @@ INSERT INTO `pengurus` (`id_pengurus`, `user_pengurus`, `nama_pengurus`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sanksi`
---
-
-CREATE TABLE `sanksi` (
-  `id_sanksi` int(11) NOT NULL,
-  `jenis_sanksi` varchar(30) NOT NULL,
-  `ket_sanksi` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `sanksi`
---
-
-INSERT INTO `sanksi` (`id_sanksi`, `jenis_sanksi`, `ket_sanksi`) VALUES
-(1, 'sakk', 'semangat');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `user`
 --
 
@@ -236,6 +166,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`username`, `password`, `level`) VALUES
 ('musahil', 'd8ab3904af3c02efcc0ffcfa80c2f68c7261c84c79d6b5c6ae33a673ab029ee2', 2),
 ('pengurus', '36142a6978c1d7f3063996e964a1a644d280eaf4c55d44c2056fab086742e495', 1),
+('pita', '69530ff425efb5d214edcf7535dd19f8d0610289765c4471da14d18b8117a944', 3),
 ('test', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 3),
 ('warga', 'c85baf447fd328b85bb8eecd0604f714fec635b5663334cba9bdae13b05f57f4', 3);
 
@@ -267,20 +198,12 @@ CREATE TABLE `wargaasrama` (
 
 INSERT INTO `wargaasrama` (`id_warga`, `id_musahil`, `nama_warga`, `nim_warga`, `prodi_warga`, `id_jk`, `alamat`, `tgllahir`, `kamar`, `gedung`, `user_warga`, `nowa_warga`, `foto`) VALUES
 (5, 3, 'test', 'test', 'test', 1, 'test', '2019-11-12', 'test', 'test', 'warga', 'test', ''),
-(8, NULL, 'Ahmad Khairi Ramadan', '170411100099', 'T. Informatika', 1, 'Trunojoyo', '18121998', NULL, NULL, 'test', '085203580638', 'coba.jpg');
+(8, NULL, 'Ahmad Khairi Ramadan', '170411100099', 'T. Informatika', 1, 'Trunojoyo', '18121998', NULL, NULL, 'test', '085203580638', 'coba.jpg'),
+(9, NULL, 'YUNIA PUSPITA', '170411100035', 'Teknik Informatika', 1, 'BOJONEGORO', '12/06/1999', NULL, NULL, 'pita', '082322889883', 'fotoku.jpg');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `izin`
---
-ALTER TABLE `izin`
-  ADD PRIMARY KEY (`id_izin`),
-  ADD KEY `izin` (`id_warga`),
-  ADD KEY `musahil` (`id_musahil`),
-  ADD KEY `pengu` (`id_pengurus`);
 
 --
 -- Indexes for table `jk`
@@ -289,26 +212,11 @@ ALTER TABLE `jk`
   ADD PRIMARY KEY (`id_jk`);
 
 --
--- Indexes for table `kegiatan`
---
-ALTER TABLE `kegiatan`
-  ADD PRIMARY KEY (`id_kegiatan`);
-
---
 -- Indexes for table `musahil`
 --
 ALTER TABLE `musahil`
   ADD PRIMARY KEY (`id_musahil`),
   ADD KEY `user_musahil` (`user_musahil`);
-
---
--- Indexes for table `pelanggaran`
---
-ALTER TABLE `pelanggaran`
-  ADD PRIMARY KEY (`id_pelanggaran`),
-  ADD KEY `pelanggaran` (`id_warga`),
-  ADD KEY `sanksi` (`id_sanksi`),
-  ADD KEY `pengurus` (`id_pengurus`);
 
 --
 -- Indexes for table `pembayaran`
@@ -334,12 +242,6 @@ ALTER TABLE `pengurus`
   ADD KEY `user_pengurus` (`user_pengurus`);
 
 --
--- Indexes for table `sanksi`
---
-ALTER TABLE `sanksi`
-  ADD PRIMARY KEY (`id_sanksi`);
-
---
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -359,34 +261,16 @@ ALTER TABLE `wargaasrama`
 --
 
 --
--- AUTO_INCREMENT for table `izin`
---
-ALTER TABLE `izin`
-  MODIFY `id_izin` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `jk`
 --
 ALTER TABLE `jk`
   MODIFY `id_jk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `kegiatan`
---
-ALTER TABLE `kegiatan`
-  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `musahil`
 --
 ALTER TABLE `musahil`
   MODIFY `id_musahil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `pelanggaran`
---
-ALTER TABLE `pelanggaran`
-  MODIFY `id_pelanggaran` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pembayaran`
@@ -398,7 +282,7 @@ ALTER TABLE `pembayaran`
 -- AUTO_INCREMENT for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
-  MODIFY `id_daftar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_daftar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `pengurus`
@@ -407,42 +291,20 @@ ALTER TABLE `pengurus`
   MODIFY `id_pengurus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `sanksi`
---
-ALTER TABLE `sanksi`
-  MODIFY `id_sanksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `wargaasrama`
 --
 ALTER TABLE `wargaasrama`
-  MODIFY `id_warga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_warga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `izin`
---
-ALTER TABLE `izin`
-  ADD CONSTRAINT `izin` FOREIGN KEY (`id_warga`) REFERENCES `wargaasrama` (`id_warga`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `musahil` FOREIGN KEY (`id_musahil`) REFERENCES `musahil` (`id_musahil`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `pengu` FOREIGN KEY (`id_pengurus`) REFERENCES `pengurus` (`id_pengurus`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `musahil`
 --
 ALTER TABLE `musahil`
   ADD CONSTRAINT `user_musahil` FOREIGN KEY (`user_musahil`) REFERENCES `user` (`username`) ON UPDATE CASCADE;
-
---
--- Constraints for table `pelanggaran`
---
-ALTER TABLE `pelanggaran`
-  ADD CONSTRAINT `pelanggaran` FOREIGN KEY (`id_warga`) REFERENCES `wargaasrama` (`id_warga`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `pengurus` FOREIGN KEY (`id_pengurus`) REFERENCES `pengurus` (`id_pengurus`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `sanksi` FOREIGN KEY (`id_sanksi`) REFERENCES `sanksi` (`id_sanksi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pembayaran`
