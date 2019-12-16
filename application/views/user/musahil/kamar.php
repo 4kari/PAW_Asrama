@@ -47,7 +47,6 @@
                                                 echo "<td> $row->gedung</td>";?>
                                                 <td>
                                                     <button type="button" class="btn btn-success tkbtn">Tambahkan</button>
-                                                    <!-- <a data-toggle="modal" data-target="#Tkamar" href="" class="btn btn-success">Lihat</a> -->
                                                 </td>
                                             <?php
                                             echo "</tr>";

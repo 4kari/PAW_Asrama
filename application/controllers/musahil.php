@@ -15,14 +15,18 @@ class musahil extends CI_Controller {
 	public function kamar(){
 		$this->load->view('user/musahil/kamar');
 	}
-	public function pulang(){
-		$this->load->view('user/musahil/pulang');
+	public function perizinan(){
+		$this->load->view('user/musahil/perizinan');
 	}
 	public function account(){
 
 	}
 	public function settings(){
 
+	}
+	public function proses_perizinan($id,$choose=1){
+		$model=$this->model_musahil;
+		$model->perizinan($id,$choose);
 	}
 	public function proses_kamar(){
 		$model=$this->model_musahil;

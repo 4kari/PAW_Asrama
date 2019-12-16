@@ -3,7 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class model_daftar extends CI_Model {
 	public function __construct(){
 		parent::__construct();
-		$config['upload_path']='./img/';
+		$post=$this->input->post();
+		if(isset($post['nim'])){
+			$path="./img/".$post['nim'];	
+		}
+		else{
+			$path="./img/";
+		}
+		$config['upload_path']=$path;
 		$config['allowed_types'] = 'gif|jpg|png|zip|jpeg';
 		$config['max_size']="0";
 		$this->load->library('upload',$config);
@@ -82,15 +89,19 @@ class model_daftar extends CI_Model {
 		$post = $this->input->post();
 		$lanjut=0;
 		foreach ($pendaf as $row) {
-			if($row->nim==$post['nim']){
+			if($row->nim==$post['nim'] && $row->keterangan!="menunggu validasi" && $row->keterangan!="Sudah di verivikasi silahkan buat akun"){
 				$lanjut=1;
-				$_SESSION['bayar']="NIM tidak Terdaftar";
+				$_SESSION['bayar']="NIM Terdaftar";
+				break;
 			}
+			else{
+				$_SESSION['bayar']="NIM tidak Terdaftar";			}
 		}
 		if($lanjut==1){
 			if(!$this->upload->do_upload('bukti')){
 				$error=array('error' => $this->upload->display_errors());
-				$_SESSION['bayar']="Upload Error";	
+				$_SESSION['bayar']="Upload Error";
+				redirect('daftar/pembayaran');
 			}else{
 				$data=array('upload_data' => $this->upload->data());
 				$this->nim = $post["nim"];
@@ -100,12 +111,13 @@ class model_daftar extends CI_Model {
 				'bukti_bayar' => $data['upload_data']['file_name'],
 				'keterangan' => 'menunggu validasi'
 				);
-				
 				$this->db->where('nim', $post["nim"]);
 				$this->db->update($this->_table, $inp);
-				$_SESSION['bayar']="Bukti pembayaran telah dikirim silahkan cek pengumnuman";
+				$_SESSION['bayar']="Bukti pembayaran telah dikirim";
+				redirect('daftar/pengumuman');
 			}
 		}
+		redirect('daftar/pembayaran/');
 	}
 	public function delete(){
 		return $this->db->delete($this->_table, array("id_daftar" => $post["id"]));

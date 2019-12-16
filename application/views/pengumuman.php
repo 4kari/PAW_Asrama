@@ -3,13 +3,13 @@
     $this->load->view('Temp/header');
     $this->load->view('Temp/mlog');
 ?>
-<div class="page-container">
+<div class="page-container p-l-0">
     <!-- MAIN CONTENT-->
     <div class="main-content">
         <div class="section__content section__content--p30">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-10">
+                    <div class="col-lg-12">
                       <h2 class="text-center m-b-25">Pengumuman</h2>
                         <div class="table-responsive table--no-card m-b-40">
                             <table class="table table-borderless table-striped table-earning">
@@ -33,7 +33,7 @@
                             </table>
                         </div>
                         buat akun kamu <a href="<?php echo site_url('daftar/buatakun'); ?>" class="btn btn-success">disini</a><br>
-                            *jika belum mengirimkan bukti pembayaran silahkan tekan tombol <a href="<?php echo site_url('daftar/pembayaran'); ?>" class="btn btn-success">pembayaran</a>><br>
+                            *jika belum mengirimkan bukti pembayaran silahkan tekan tombol <a href="<?php echo site_url('daftar/pembayaran'); ?>" class="btn btn-success">pembayaran</a><br>
                             *jika namamu tidak tercantum pada table diatas. silahkan lakukan pendaftaran kembali menggunakan data yang valid
                     </div>
                 </div>

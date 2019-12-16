@@ -23,4 +23,17 @@ class model_musahil extends CI_Model {
 		}
 		redirect('musahil');
 	}
+	public function perizinan($id,$choose){
+		if($choose==1){
+			$musahil=$this->db->get_where('musahil',["user_musahil" => $_SESSION['user']])->row();
+			$id_musahil=$musahil->id_musahil;
+			$data = array('id_musahil' => $id_musahil);
+			$this->db->where('id_izin',$id);
+			$this->db->update('izin', $data);
+		}
+		else{
+			$this->db->delete('izin', array("id_izin" => $id));
+		}
+		redirect('musahil/perizinan');
+	}
 }

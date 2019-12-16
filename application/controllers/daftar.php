@@ -23,7 +23,6 @@ class daftar extends CI_Controller {
 	public function bayar(){
 		$model=$this->model_daftar;
 		$model->update();
-		$this->load->view("pengumuman");
 	}
 	public function pembayaran(){
 		$this->load->view('pembayaran');

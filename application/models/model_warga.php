@@ -105,14 +105,24 @@ class model_warga extends CI_Model {
 				if($cekusr==1){
 					$this->db->insert('user',$user);
 					$this->db->insert('wargaasrama',$warga);
-					//$this->db->delete($this->_table, array("id_daftar" => $id));
+					// $this->db->delete($this->_table, array("id_daftar" => $id));
 					$_SESSION['buat']="akun berhasil dibuat";
 				}
 			}
 			if(!isset($_SESSION['buat']) || $_SESSION['buat']!="akun berhasil dibuat"){
 				$_SESSION['buat']='silahkan gunakan nim yang telah di verivikasi';
 			}
-
 		}
+	}
+	public function izin(){
+		$post=$this->input->post();
+		$id_warga=$this->db->get_where('wargaasrama',['user_warga'=>$_SESSION['user']])->row()->id_warga;
+		$data = array('id_izin' => "",
+			'id_warga' => $id_warga,
+			'tglmulai'=> $post['tglM'],
+			'tglkembali'=> $post['tglK'],
+			'ket_izin'=> $post['ket']);
+		echo $id_warga;
+		$this->db->insert('izin',$data);
 	}
 }

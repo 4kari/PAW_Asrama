@@ -1,6 +1,5 @@
 <?php
 	$this->load->view('Temp/pengurus/header');
-    $pendaf=$this->db->get('pendaftaran')->result();
     $daftar=$this->db->get_where('pendaftaran',["id_daftar" => $id])->row();
 	$jk=$this->db->get_where('jk',["id_jk" => $daftar->id_jk])->row();
 ?>
@@ -35,13 +34,13 @@
                             </div>
                         </div>
                         <div class="row"> <h4 class="title-1 m-b-25 text-center col-lg-12">Berkas</h4></div><div class="row">
-                            <div class="col-4"><img class="berkas" src="<?php echo base_url('img/'); echo $daftar->foto; ?>" alt="foto"></div>
+                            <div class="col-4"><img class="berkas" src="<?php $path='img/'.$daftar->nim.'/'; echo base_url($path); echo $daftar->foto; ?>" alt="foto"></div>
                         
-                        <div class="col-4"><img class="berkas" src="<?php echo base_url('img/'); echo $daftar->file_ktm;?>" alt="ktm"></div>
+                        <div class="col-4"><img class="berkas" src="<?php $path='img/'.$daftar->nim.'/'; echo base_url($path); echo $daftar->file_ktm;?>" alt="ktm"></div>
                         <?php
                         if ($daftar->bukti_bayar!="") {
                         ?>
-                        <div class="col-3"><img class="berkas" src="<?php echo base_url('img/'); echo $daftar->bukti_bayar;?>" alt="bukti bayar"></div>
+                        <div class="col-3"><img class="berkas" src="<?php $path='img/'.$daftar->nim.'/'; echo base_url($path); echo $daftar->bukti_bayar;?>" alt="bukti bayar"></div>
                         <?php } else{ echo "<div class='row'><div class='col-3'></div><div class='col-6'>belum ada bukti pembayaran</div></div>"; }?>
                         </div>
                         <div class="row m-4">
@@ -59,11 +58,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        <!-- END MAIN CONTENT-->
-        <!-- END PAGE CONTAINER-->
-        </div>
-    </div>
-</div>
-</body>
-</html>
+            <?php   
+$this->load->view('Temp/pengurus/footer');
+?>

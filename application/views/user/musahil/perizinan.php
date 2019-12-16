@@ -1,5 +1,6 @@
 <?php
-    $this->load->view('Temp/pengurus/header');
+    $this->load->view('Temp/musahil/header');
+    $this->load->view('Temp/musahil/modal');
     $izin=$this->db->get('izin')->result();
 ?>
 <div class="page-container p-l-0">
@@ -22,7 +23,6 @@
                                             echo "<th> Tanggal mulai </th>";
                                             echo "<th> Tanggal kembali </th>";
                                             echo "<th> Keterangan </th>";
-                                            echo "<th> Disetujui </th>";
                                             echo "<th> Action </th>";
                                         echo "</tr>";
                                     ?>
@@ -33,8 +33,7 @@
                                     $no=0;
                                     foreach ($izin as $row) {
                                         $warga=$this->db->get_where('wargaasrama',["id_warga" => $row->id_warga])->row();
-                                        if($row->id_musahil!=""){
-                                            $musahil=$this->db->get_where('musahil',["id_musahil" => $row->id_musahil])->row();
+                                        if($row->id_musahil==""){
                                             $no+=1;
                                             echo "<tr>";
                                                 echo "<td> $no</td>";
@@ -43,15 +42,9 @@
                                                 echo "<td> $warga->prodi_warga</td>";
                                                 echo "<td> $row->tglmulai</td>";
                                                 echo "<td> $row->tglkembali</td>";
-                                                echo "<td> $row->ket_izin</td>";
-                                                echo "<td> $musahil->nama_musahil</td>";
-                                                if($row->id_pengurus==""){ ?>
-                                                <td> <a href="<?php echo site_url('pengurus/proses_perizinan/'); echo($row->id_izin); ?>" class="btn btn-success">Izinkan</a>
-                                                <a href="<?php echo site_url('pengurus/proses_perizinan/'); echo($row->id_izin.'/');echo(0) ?>" class="btn btn-danger">Tolak</a>
-                                                <?php }
-                                                else{ ?>
-                                                <td><a href="<?php echo site_url('pengurus/proses_perizinan/'); echo($row->id_izin.'/');echo(0) ?>" class="btn btn-danger">hapus</a>
-                                            <?php } ?>
+                                                echo "<td> $row->ket_izin</td>";?>
+                                                <td> <a href="<?php echo site_url('musahil/proses_perizinan/'); echo($row->id_izin); ?>" class="btn btn-success">Izinkan</a>
+                                                <a href="<?php echo site_url('musahil/proses_perizinan/'); echo($row->id_izin.'/');echo(0) ?>" class="btn btn-danger">Tolak</a>
                                             </td>
                                             <?php
                                             echo "</tr>";
@@ -64,6 +57,11 @@
                         </div>
                     </div>
                 </div>
-           <?php   
-$this->load->view('Temp/pengurus/footer');
-?>
+            </div>
+        </div>
+        <!-- END MAIN CONTENT-->
+        <!-- END PAGE CONTAINER-->
+    </div>
+</div>
+</body>
+</html>

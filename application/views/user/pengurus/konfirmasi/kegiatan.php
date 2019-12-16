@@ -98,9 +98,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- END MAIN CONTENT-->
-    <!-- END PAGE CONTAINER-->
-</div>
+            <?php   
+$this->load->view('Temp/pengurus/footer');
+?>

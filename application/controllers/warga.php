@@ -21,6 +21,14 @@ class warga extends CI_Controller {
 	public function bayar(){
 		$model=$this->model_warga;
 		$model->bayar();
+	}
 
+	public function pembayaran(){
+		$this->load->view('user/warga/bayar');
+	}
+	public function proses_izin(){
+		$model=$this->model_warga;
+		$model->izin();
+		redirect('warga/izin');
 	}
 }

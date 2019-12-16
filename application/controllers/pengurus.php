@@ -43,7 +43,23 @@ class pengurus extends CI_Controller {
 	public function warga(){
 		$this->load->view('user/pengurus/data/warga');
 	}
+	public function show_warga(){
+		$this->load->view('user/pengurus/data/show_warga');
+	}
 	public function musahil(){
+		$this->load->view('user/pengurus/data/musahil');
+	}
+	public function proses_musahil($upd=1,$del=0,$ins=0){
+		$model=$this->model_pengurus;
+		if($upd==1){
+			$model->Umusahil();
+		}
+		if($del==1){
+			$model->Dmusahil();
+		}
+		if($ins==1){
+			$model->Imusahil();
+		}
 		$this->load->view('user/pengurus/data/musahil');
 	}
 	public function pelanggaran(){

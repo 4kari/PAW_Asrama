@@ -2,6 +2,10 @@
     $_SESSION['page']='buat akun';
     $this->load->view('Temp/header');
     $this->load->view('Temp/mlog');
+    if(isset($_SESSION['buat']) && $_SESSION['buat']!=""){
+      echo $_SESSION['buat'];
+      $_SESSION['buat']="";
+    }
 ?>
 <!--- Form Daftar --->
 <div class="container-fluid bg p-4">

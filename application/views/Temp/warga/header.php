@@ -21,36 +21,25 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?= site_url('warga/profil'); ?>">Profil</a>
+        <a class="nav-link" href="<?= site_url('warga'); ?>">Home</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
           Prosedur
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<?php echo site_url('izin') ?>">Izin</a>
+          <a class="dropdown-item" href="<?php echo site_url('warga/izin') ?>">Izin</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<?php echo site_url('') ?>">Info Izin</a>
+          <a class="dropdown-item" href="<?php echo site_url('warga') ?>">Info Izin</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<?php echo site_url('izin/bayar') ?>">Pembayaran</a>
+          <a class="dropdown-item" href="<?php echo site_url('warga/pembayaran') ?>">Pembayaran</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<?php echo site_url('') ?>">Informasi Pembayaran</a>
+          <a class="dropdown-item" href="<?php echo site_url('warga') ?>">Informasi Pembayaran</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<?php echo site_url('') ?>">Laporan</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<?php echo site_url('') ?>">Pelanggaran</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<?php echo site_url('') ?>">Informasi</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Kegiatan</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">Informasi</a>
+        <a class="nav-link" href="<?= site_url('warga/profil'); ?>">Profil</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?= site_url('login/logout'); ?>">Logout</a>
